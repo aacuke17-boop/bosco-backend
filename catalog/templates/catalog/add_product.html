@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Додати товар{% endblock %}
+
+{% block content %}
+    <h1>Додати товар</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Назва
+            <input type="text" name="name" value="{{ values.name }}" required>
+        </label>
+        <label>Категорія
+            <input type="text" name="category" value="{{ values.category }}" required>
+        </label>
+        <label>Матеріал
+            <input type="text" name="material" value="{{ values.material }}" required>
+        </label>
+        <label>Бренд
+            <input type="text" name="brand" value="{{ values.brand }}" required>
+        </label>
+        <label>Ціна
+            <input type="number" name="price" step="0.01" min="0" value="{{ values.price }}" required>
+        </label>
+
+        <button type="submit">Зберегти</button>
+    </form>
+{% endblock %}

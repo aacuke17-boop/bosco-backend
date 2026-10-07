@@ -1,11 +1,9 @@
-from django.shortcuts import render
-
-# Create your views here.
 import random
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
+
 from .models import Product
 
 NAMES = [
@@ -41,4 +39,36 @@ def replenish(request, count):
             price=Decimal(random.randint(100, 5000)),
         ))
     Product.objects.bulk_create(new_products)
-    return HttpResponse(f'Додано {count} нових записів')
+    messages.success(request, f'Додано {count} нових записів')
+    return redirect('products')
+
+
+def add_product(request):
+    if request.method == 'POST':
+        name = request.POST.get('name', '').strip()
+        category = request.POST.get('category', '').strip()
+        material = request.POST.get('material', '').strip()
+        brand = request.POST.get('brand', '').strip()
+        price_raw = request.POST.get('price', '').strip().replace(',', '.')
+
+        try:
+            price = Decimal(price_raw)
+            if price < 0:
+                raise InvalidOperation
+        except InvalidOperation:
+            price = None
+
+        if not all([name, category, material, brand]) or price is None:
+            messages.error(request, 'Заповніть усі поля коректно')
+            return render(request, 'catalog/add_product.html', {
+                'values': request.POST,
+            })
+
+        Product.objects.create(
+            name=name, category=category, material=material,
+            brand=brand, price=price,
+        )
+        messages.success(request, f'Товар «{name}» додано')
+        return redirect('products')
+
+    return render(request, 'catalog/add_product.html')
