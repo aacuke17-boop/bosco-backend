@@ -1,0 +1,12 @@
+[
+  {"model": "catalog.product", "pk": 1, "fields": {"name": "М’яч футбольний", "category": "Футбол", "material": "Шкіра", "brand": "Adidas", "price": "1299.00"}},
+  {"model": "catalog.product", "pk": 2, "fields": {"name": "Ракетка тенісна", "category": "Теніс", "material": "Графіт", "brand": "Wilson", "price": "3499.00"}},
+  {"model": "catalog.product", "pk": 3, "fields": {"name": "Гантелі 5 кг", "category": "Фітнес", "material": "Метал", "brand": "Decathlon", "price": "850.00"}},
+  {"model": "catalog.product", "pk": 4, "fields": {"name": "Скакалка", "category": "Фітнес", "material": "Пластик", "brand": "Reebok", "price": "199.00"}},
+  {"model": "catalog.product", "pk": 5, "fields": {"name": "Боксерські рукавиці", "category": "Бокс", "material": "Шкірозамінник", "brand": "Everlast", "price": "1750.00"}},
+  {"model": "catalog.product", "pk": 6, "fields": {"name": "Велошолом", "category": "Велоспорт", "material": "Пластик", "brand": "Giro", "price": "2100.00"}},
+  {"model": "catalog.product", "pk": 7, "fields": {"name": "Йога-килимок", "category": "Йога", "material": "ТПЕ", "brand": "Puma", "price": "620.00"}},
+  {"model": "catalog.product", "pk": 8, "fields": {"name": "Баскетбольний м’яч", "category": "Баскетбол", "material": "Гума", "brand": "Nike", "price": "1100.00"}},
+  {"model": "catalog.product", "pk": 9, "fields": {"name": "Лижні палиці", "category": "Зимові види", "material": "Алюміній", "brand": "Decathlon", "price": "950.00"}},
+  {"model": "catalog.product", "pk": 10, "fields": {"name": "Окуляри для плавання", "category": "Плавання", "material": "Силікон", "brand": "Speedo", "price": "540.00"}}
+]
