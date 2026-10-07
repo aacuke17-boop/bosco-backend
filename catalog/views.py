@@ -5,7 +5,7 @@ import random
 from decimal import Decimal
 
 from django.http import HttpResponse
-
+from django.shortcuts import render
 from .models import Product
 
 NAMES = [
@@ -21,6 +21,12 @@ NAMES = [
     ('Окуляри для плавання', 'Плавання', 'Силікон'),
 ]
 BRANDS = ['Nike', 'Adidas', 'Puma', 'Wilson', 'Decathlon', 'Reebok']
+
+
+def products(request):
+    return render(request, 'catalog/products.html', {
+        'products': Product.objects.all(),
+    })
 
 
 def replenish(request, count):
