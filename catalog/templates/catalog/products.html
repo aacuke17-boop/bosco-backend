@@ -5,7 +5,7 @@
 {% block content %}
     <h1>Спортивне спорядження</h1>
 
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>№</th>
@@ -28,7 +28,7 @@
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="6">Товарів немає</td>
+                    <td colspan="6" class="empty">Товарів немає</td>
                 </tr>
             {% endfor %}
         </tbody>
