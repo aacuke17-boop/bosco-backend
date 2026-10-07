@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('replenish/<int:count>', views.replenish, name='replenish'),
+    path('products', views.products, name='products'),
     path('replenish/<int:count>', views.replenish, name='replenish'),
 ]
